@@ -1,0 +1,79 @@
+body {
+   background-color: rgb(32, 32, 32);
+   color: white;
+   font-family: monospace;
+   padding: 24px;
+}
+
+.title {
+   color: rgb(84, 104, 222);
+   font-size: 40px;
+   margin-bottom: 30px;
+}
+
+.list-item {
+   font-size: 20px;
+   margin-bottom: 24px;
+}
+.list-item.completed {
+   text-decoration: line-through;
+   color: gray;
+   /* Adicione outros estilos desejados para tarefas concluídas */
+}
+
+input {
+   height: 32px;
+   background-color: transparent;
+   color: white;
+   border-color: rgb(84, 104, 222);
+   border-radius: 10px;
+   font-size: 16px;
+   padding: 8px;
+}
+
+.addtask_button {
+   margin-top: 10px;
+   font-size: 16px;
+   padding: 16px;
+   border-width: 0px;
+   font-weight: bold;
+   background-color: rgb(84, 104, 222);
+   border-radius: 10px;
+   transition: 0.3s;
+}
+
+.addtask_button:hover {
+   background-color: rgb(31, 30, 81);
+   color: white;
+   cursor: pointer;
+}
+
+.concluir_button {
+   border-radius: 5px;
+   font-weight: bold;
+   margin-left: 50px;
+   padding: 5px;
+   width: 80px;
+   border: none;
+   background-color: transparent;
+   color: white;
+   transition: 0.2s;
+   cursor: pointer;
+}
+.concluir_button:hover {
+   background-color: green;
+}
+.remover_button {
+   border-radius: 5px;
+   font-weight: bold;
+   padding: 5px;
+   width: 80px;
+   border: none;
+   background-color: transparent;
+   color: white;
+   transition: 0.2s;
+   cursor: pointer;
+}
+.remover_button:hover {
+   background-color: red;
+}

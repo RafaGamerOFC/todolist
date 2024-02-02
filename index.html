@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lista de Tarefas</title>
+   <link rel="stylesheet" href="style.css">
+   <script src="script.js"></script>
+</head>
+<body>
+   <div>
+      <h1 class="title" id="dateTitle"></h1>
+      <ul id="list"></ul>
+   </div>
+   <div>
+      <input type="text" id="task_name" name="task_name" placeholder="Nome da tarefa">
+      <button class="addtask_button" onclick="addNewTask()">Adicionar</button>
+   </div>
+
+   <script>
+      function getFormattedDate() {
+         const options = { month: 'long', day: 'numeric' };
+         const today = new Date();
+         return today.toLocaleDateString('pt-br', options);
+      }
+
+      document.getElementById('dateTitle').textContent = 'Tarefas do dia ' + getFormattedDate();
+
+      function addNewTask() {
+         var list = document.getElementById('list');
+         var textInput = document.getElementById('task_name');
+         var text = textInput.value;
+
+         if (text.length == 0) {
+            alert('Você precisa digitar algo para adicionar a lista');
+            return;
+         }
+
+         var listItem = document.createElement('li');
+         listItem.className = 'list-item';
+         listItem.innerHTML = `
+            <span>${text}</span>
+            <button class="concluir_button" onclick="completeTask(this)">Concluir</button>
+            <button class="remover_button" onclick="removeTask(this)">Remover</button>
+         `;
+
+         list.appendChild(listItem);
+
+         textInput.value = '';
+      }
+
+      function completeTask(button) {
+         var listItem = button.parentNode;
+         listItem.classList.toggle('completed');
+      }
+
+
+      function removeTask(button) {
+         var listItem = button.parentNode;
+         listItem.parentNode.removeChild(listItem);
+      }
+
+      document.addEventListener('keypress', function(event) {
+         if (event.key === 'Enter') {
+            addNewTask();
+         }
+      });
+   </script>
+</body>
+</html>
